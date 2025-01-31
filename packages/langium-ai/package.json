@@ -1,6 +1,6 @@
 {
     "name": "langium-ai",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Tooling for building AI Agents for Langium DSLs",
     "repository": {
         "type": "git",
@@ -9,51 +9,28 @@
     },
     "bugs": "https://github.com/TypeFox/langium-ai/issues",
     "type": "module",
-    "module": "dist/esm/index.js",
+    "main": "dist/index.js",
     "private": false,
     "files": [
         "dist"
     ],
     "exports": {
         ".": {
-            "import": {
-                "types": "./dist/esm/index.d.ts",
-                "default": "./dist/esm/index.js"
-            },
-            "require": {
-                "types": "./dist/cjs/index.d.ts",
-                "default": "./dist/cjs/index.js"
-            }
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
         },
         "./splitter": {
-            "import": {
-                "types": "./dist/esm/splitter/index.d.ts",
-                "default": "./dist/esm/splitter/index.js"
-            },
-            "require": {
-                "types": "./dist/cjs/splitter/index.d.ts",
-                "default": "./dist/cjs/splitter/index.js"
-            }
+            "import": "./dist/splitter/index.js",
+            "types": "./dist/splitter/index.d.ts"
         },
         "./evaluator": {
-            "import": {
-                "types": "./dist/esm/evaluator/index.d.ts",
-                "default": "./dist/esm/evaluator/index.js"
-            },
-            "require": {
-                "types": "./dist/cjs/evaluator/index.d.ts",
-                "default": "./dist/cjs/evaluator/index.js"
-            }
+            "import": "./dist/evaluator/index.js",
+            "types": "./dist/evaluator/index.d.ts"
         }
     },
     "scripts": {
-        "build": "npm run build:esm",
-        "build:cjs": "tsc -p tsconfig.cjs.json",
-        "build:esm": "tsc -p tsconfig.esm.json",
-        "build:min:cjs": "esbuild --minify --sourcemap --format=cjs --bundle dist/cjs/index.js --outfile=dist/cjs/index.min.js",
-        "build:min:esm": "esbuild --minify --sourcemap --format=esm --bundle dist/mjs/index.js --outfile=dist/mjs/index.min.js",
+        "build": "tsc",
         "watch": "tsc -w",
-        "start": "node ./dist/index.js",
         "test": "vitest run",
         "clean": "rm -rf ./dist"
     },
