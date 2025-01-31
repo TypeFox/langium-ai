@@ -4,12 +4,11 @@
     "description": "Tooling for building AI Agents for Langium DSLs",
     "repository": {
         "type": "git",
-        "url": "https://github.com/TypeFox/langium-ai/",
+        "url": "git+https://github.com/TypeFox/langium-ai.git",
         "directory": "packages/langium-ai"
     },
     "bugs": "https://github.com/TypeFox/langium-ai/issues",
     "type": "module",
-    "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
     "private": false,
     "files": [
