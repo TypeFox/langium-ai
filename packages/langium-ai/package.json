@@ -2,32 +2,71 @@
     "name": "langium-ai",
     "version": "0.1.2",
     "description": "Tooling for building AI Agents for Langium DSLs",
-    "main": "dist/index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/TypeFox/langium-ai/",
+        "directory": "packages/langium-ai"
+    },
+    "bugs": "https://github.com/TypeFox/langium-ai/issues",
+    "type": "module",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "private": false,
+    "files": [
+        "dist"
+    ],
     "exports": {
         ".": {
-            "import": "./dist/index.js",
-            "types": "./dist/index.d.ts"
+            "import": {
+                "types": "./dist/esm/index.d.ts",
+                "default": "./dist/esm/index.js"
+            },
+            "require": {
+                "types": "./dist/cjs/index.d.ts",
+                "default": "./dist/cjs/index.js"
+            }
         },
         "./splitter": {
-            "import": "./dist/splitter/index.js",
-            "types": "./dist/splitter/index.d.ts"
+            "import": {
+                "types": "./dist/esm/splitter/index.d.ts",
+                "default": "./dist/esm/splitter/index.js"
+            },
+            "require": {
+                "types": "./dist/cjs/splitter/index.d.ts",
+                "default": "./dist/cjs/splitter/index.js"
+            }
         },
         "./evaluator": {
-            "import": "./dist/evaluator/index.js",
-            "types": "./dist/evaluator/index.d.ts"
+            "import": {
+                "types": "./dist/esm/evaluator/index.d.ts",
+                "default": "./dist/esm/evaluator/index.js"
+            },
+            "require": {
+                "types": "./dist/cjs/evaluator/index.d.ts",
+                "default": "./dist/cjs/evaluator/index.js"
+            }
         }
     },
     "scripts": {
-        "build": "tsc",
+        "build": "npm run build:esm",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:esm": "tsc -p tsconfig.esm.json",
+        "build:min:cjs": "esbuild --minify --sourcemap --format=cjs --bundle dist/cjs/index.js --outfile=dist/cjs/index.min.js",
+        "build:min:esm": "esbuild --minify --sourcemap --format=esm --bundle dist/mjs/index.js --outfile=dist/mjs/index.min.js",
         "watch": "tsc -w",
         "start": "node ./dist/index.js",
-        "test": "vitest run"
+        "test": "vitest run",
+        "clean": "rm -rf ./dist"
     },
-    "type": "module",
     "author": {
         "name": "TypeFox",
         "url": "https://www.typefox.io"
     },
+    "keywords": [
+        "langium",
+        "ai",
+        "evaluations"
+    ],
     "license": "MIT",
     "dependencies": {
         "langium": "~3.1.2",
