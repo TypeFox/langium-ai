@@ -1,0 +1,44 @@
+{
+    "name": "langium-ai",
+    "version": "0.1.2",
+    "description": "Tooling for building AI Agents for Langium DSLs",
+    "main": "dist/index.js",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        },
+        "./splitter": {
+            "import": "./dist/splitter/index.js",
+            "types": "./dist/splitter/index.d.ts"
+        },
+        "./evaluator": {
+            "import": "./dist/evaluator/index.js",
+            "types": "./dist/evaluator/index.d.ts"
+        }
+    },
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc -w",
+        "start": "node ./dist/index.js",
+        "test": "vitest run"
+    },
+    "type": "module",
+    "author": {
+        "name": "TypeFox",
+        "url": "https://www.typefox.io"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "langium": "~3.1.2",
+        "levenshtein-edit-distance": "^3.0.1"
+    },
+    "volta": {
+        "node": "20.10.0",
+        "npm": "10.2.3"
+    },
+    "devDependencies": {
+        "typescript": "^5.4.5",
+        "vitest": "^2.0.3"
+    }
+}

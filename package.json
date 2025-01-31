@@ -1,0 +1,24 @@
+{
+    "name": "langium-ai-monorepo",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Monorepo for LangiumAI and it's associated projects",
+    "scripts": {
+      "build": "npm run build --workspaces"
+    },
+    "type": "module",
+    "author": {
+      "name": "TypeFox",
+      "url": "https://www.typefox.io"
+    },
+    "license": "MIT",
+    "workspaces": [
+      "packages/langium-ai",
+      "packages/examples/*"
+    ],
+    "volta": {
+      "node": "20.10.0",
+      "npm": "10.2.3"
+    }
+  }
+  
