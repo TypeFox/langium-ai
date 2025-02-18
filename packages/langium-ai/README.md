@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project makes it easier to build Agents for Langium DSLs. In particular LangiumAI tries to help solve the following problems:
+This project makes it easier to build Agents for Langium DSLs. In particular Langium AI tries to help solve the following problems:
 
 - How to pick a good base model to start developing with
 - How to develop good natural language interfaces for DSLs
@@ -10,22 +10,22 @@ This project makes it easier to build Agents for Langium DSLs. In particular Lan
 - How to split DSL documents in a way that makes sense for the language and agent
 - How to evaluate DSL output from an agent with respect to the language's syntax & semantics
 
-To solve these problems LangiumAI provides these key features:
+To solve these problems Langium AI provides these key features:
 
 - Splitting Support: Using your DSL's parser to make it easier to pre-process documents before ingest (such as into a vector DB)
 - Evaluation Support: Assess the output of your model + RAG + whatever else you have in your stack with regards to a structured input/output evaluation suite.
 
-So in a nutshell, LangiumAI is a tool to help build document splitting logic for DSLs, and to build proper DSL evaluations for model output.
+So in a nutshell, Langium AI is a tool to help build document splitting logic for DSLs, and to build proper DSL evaluations for model output.
 
-What's also important is what LangiumAI doesn't provide, and why:
+What's also important is what Langium AI doesn't provide, and why:
 - *We don't choose your model for you.* We believe this is your choice, and we don't want to presume we know best or lock you in. All we assume is that you have a model (or stack) that we can use.
 - *We don't choose your stack for you.* There are many excellent choices for hosting providers, databases, caches, and other supporting services (local & remote). There's so many, and they change so often, that we decided it was best to not assume what works here, and rather support preparing information for whatever stack you choose.
 
-LLMs (and transformers in general), are evolving quite rapidly. With this approach, we see LangiumAI as a tool to help you build your own tooling, whilst letting you keep up with the latest and greatest.
+LLMs (and transformers in general), are evolving quite rapidly. With this approach, we see Langium AI as a tool to help you build your own tooling, whilst letting you keep up with the latest and greatest.
 
 ## Installation
 
-You can install LangiumAI by running:
+You can install Langium AI by running:
 
 ```sh
 npm i --save langium-ai
@@ -92,4 +92,4 @@ What this project also includes are some helpful examples:
 
 ## Contributing
 
-If you want to help feel free to open an issue or a PR. As a general note we're open to accept changes that focus on improving how we support agent development for Langium DSLs, but we don't plan on integrating anything beyond that. I.e we don't want to provide explicit bindings to llamaindex, ollama, langchain, or other frameworks. Similarly we don't plan to provide direct bindings for OpenAI and Anthropic. It's not that we don't think these are excellent frameworks or providers (they are!), but we want to keep LangiumAI focused as a tool for building agent development tooling. To this end we may provide integration examples, but no direct bindings.
+If you want to help feel free to open an issue or a PR. As a general note we're open to accept changes that focus on improving how we support agent development for Langium DSLs, but we don't plan on integrating anything beyond that. I.e we don't want to provide explicit bindings to llamaindex, ollama, langchain, or other frameworks. Similarly we don't plan to provide direct bindings for OpenAI and Anthropic. It's not that we don't think these are excellent frameworks or providers (they are!), but we want to keep Langium AI focused as a tool for building agent development tooling. To this end we may provide integration examples, but no direct bindings.
