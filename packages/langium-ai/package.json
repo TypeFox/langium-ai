@@ -1,6 +1,6 @@
 {
     "name": "langium-ai",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "description": "Tooling for building AI Agents for Langium DSLs",
     "repository": {
         "type": "git",

@@ -3,17 +3,54 @@
  */
 
 import { LangiumServices } from "langium/lsp";
+import { Diagnostic } from "vscode-languageserver-types";
 import { Evaluator, EvaluatorResult, EvaluatorResultData } from "./evaluator.js";
 import { URI } from "langium";
 
+/**
+ * Langium-specific evaluator result data
+ */
 export interface LangiumEvaluatorResultData extends EvaluatorResultData {
+
+    /**
+     * Number of validation failures
+     */
     failures: number;
+
+    /**
+     * Number of errors
+     */
     errors: number;
+
+    /**
+     * Number of warnings
+     */
     warnings: number;
+
+    /**
+     * Number of infos
+     */
     infos: number;
+
+    /**
+     * Number of hints
+     */
     hints: number;
+
+    /**
+     * Number of unassigned diagnostics
+     */
     unassigned: number;
+
+    /**
+     * Length of the response in chars
+     */
     response_length: number;
+
+    /**
+     * Raw diagnostic data, same which is used to compute the other values above
+     */
+    diagnostics: Diagnostic[];
 }
 
 export class LangiumEvaluator extends Evaluator {
@@ -43,9 +80,9 @@ export class LangiumEvaluator extends Evaluator {
 
         try {
             await this.services.shared.workspace.DocumentBuilder.build([doc], { validation: true });
-            const validationResult = doc.diagnostics ?? [];
+            const validationResults = doc.diagnostics ?? [];
             
-            // sum severity score, lower is better
+            // count the number of each type of diagnostic
             let evalData: LangiumEvaluatorResultData = {
                 failures: 0,
                 errors: 0,
@@ -53,10 +90,13 @@ export class LangiumEvaluator extends Evaluator {
                 infos: 0,
                 hints: 0,
                 unassigned: 0,
-                response_length: response.length
+                // include length of the response for checking
+                response_length: response.length,
+                // include the diagnostics for debugging if desired
+                diagnostics: validationResults
             };
 
-            for (const diagnostic of validationResult) {
+            for (const diagnostic of validationResults) {
                 if (diagnostic.severity) {
                     switch (diagnostic.severity) {
                         case 1:
