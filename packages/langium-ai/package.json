@@ -1,6 +1,6 @@
 {
     "name": "langium-ai",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Tooling for building AI Agents for Langium DSLs",
     "repository": {
         "type": "git",
@@ -45,7 +45,7 @@
     ],
     "license": "MIT",
     "dependencies": {
-        "langium": "~3.1.2",
+        "langium": "~3.4.0",
         "levenshtein-edit-distance": "^3.0.1"
     },
     "volta": {

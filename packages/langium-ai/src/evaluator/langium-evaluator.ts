@@ -53,14 +53,14 @@ export interface LangiumEvaluatorResultData extends EvaluatorResultData {
     diagnostics: Diagnostic[];
 }
 
-export class LangiumEvaluator extends Evaluator {
+export class LangiumEvaluator<T extends LangiumServices> extends Evaluator {
 
     /**
      * Services to use for evaluation
      */
-    protected services: LangiumServices;
+    protected services: T;
 
-    constructor(services: LangiumServices) {
+    constructor(services: T) {
         super();
         this.services = services;
     }
