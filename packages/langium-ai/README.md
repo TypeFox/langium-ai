@@ -1,5 +1,7 @@
 # Langium AI
 
+**Notice: This package has been moved over to [langium-ai-tools](https://www.npmjs.com/package/langium-ai-tools)! Please use the new package going forward. The one here has been deprecated in the meantime.**
+
 ## Overview
 
 This project makes it easier to build Agents for Langium DSLs. In particular Langium AI tries to help solve the following problems:
